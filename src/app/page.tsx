@@ -108,8 +108,14 @@ export default function Home() {
 
             {/* Right Side - Visual Interface Elements */}
             <div className="relative hidden lg:block h-[600px]">
+              {/* Hero Image */}
+              <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[420px] h-[520px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white z-0">
+                 <img src="/images/hero.png" alt="Pharmacist" className="w-full h-full object-cover" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"></div>
+              </div>
+
               {/* Main App Mockup Card */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[340px] bg-white rounded-[2rem] shadow-2xl border border-slate-100 p-6 z-10">
+              <div className="absolute top-1/2 left-0 -translate-y-1/2 w-full max-w-[320px] bg-white/95 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/50 p-6 z-10">
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <p className="text-xs text-slate-400 font-medium mb-1">Lokasi Pengiriman</p>
@@ -294,22 +300,19 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Enervon-C Multivitamin', price: 'Rp 45.000', orig: 'Rp 50.000', label: 'Terlaris' },
-              { name: 'Panadol Paracetamol', price: 'Rp 12.500', orig: null, label: null },
-              { name: 'Betadine Antiseptik 15ml', price: 'Rp 18.000', orig: null, label: null },
-              { name: 'Tolak Angin Cair 12 Sachet', price: 'Rp 38.000', orig: 'Rp 42.000', label: 'Diskon 10%' }
+              { name: 'Enervon-C Multivitamin', price: 'Rp 45.000', orig: 'Rp 50.000', label: 'Terlaris', img: '/images/product-1.png' },
+              { name: 'Panadol Paracetamol', price: 'Rp 12.500', orig: null, label: null, img: '/images/product-2.png' },
+              { name: 'Betadine Antiseptik 15ml', price: 'Rp 18.000', orig: null, label: null, img: '/images/product-3.png' },
+              { name: 'Herbal Supplement 12 Sachet', price: 'Rp 38.000', orig: 'Rp 42.000', label: 'Diskon 10%', img: '/images/product-1.png' }
             ].map((product, idx) => (
               <div key={idx} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all">
                 <div className="h-48 bg-slate-50 relative flex items-center justify-center p-6">
                   {product.label && (
-                    <span className="absolute top-4 left-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider">
+                    <span className="absolute top-4 left-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">
                       {product.label}
                     </span>
                   )}
-                  {/* Placeholder for Product Image using an Icon for now */}
-                  <div className="w-24 h-24 bg-white rounded-full shadow-sm flex items-center justify-center">
-                    <Pill className="w-10 h-10 text-slate-300 group-hover:scale-110 transition-transform duration-500" strokeWidth={1} />
-                  </div>
+                  <img src={product.img} alt={product.name} className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 drop-shadow-md" />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="font-semibold text-slate-900 mb-2 line-clamp-2">{product.name}</h3>
