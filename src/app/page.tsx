@@ -73,14 +73,93 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="w-full bg-[#F4F9F5]">
-        <img 
-          src="/images/hero-full.png" 
-          alt="Bazzhealth Hero Design" 
-          className="w-full h-auto object-cover max-w-[1920px] mx-auto"
-        />
+      <section className="relative pt-12 pb-32 md:pt-20 md:pb-40 overflow-hidden bg-[#F4F9F5]">
+        {/* Curved Green Background */}
+        <div className="absolute top-0 right-0 w-full md:w-[65%] h-full bg-[#34A853] rounded-l-[40px] md:rounded-l-[100px] z-0 translate-x-[15%] md:translate-x-[5%] lg:translate-x-0"></div>
+
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+            
+            {/* Left Content */}
+            <div className="max-w-[540px]">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-emerald-100 text-[#23A455] text-sm font-bold mb-6 md:mb-8 shadow-sm">
+                <ShieldCheck className="w-[18px] h-[18px]" strokeWidth={2.5} />
+                <span>Apotek Online Terpercaya</span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl lg:text-[64px] font-extrabold text-[#1a1a1a] tracking-tight leading-[1.1] mb-6">
+                Sehat itu mudah,<br />
+                <span className="text-[#23A455]">bazzhealth</span> solusinya.
+              </h2>
+              
+              <p className="text-[17px] text-[#4a5568] mb-10 leading-relaxed font-medium">
+                Dapatkan obat, vitamin, dan kebutuhan kesehatan lengkap dengan harga terbaik dan pengiriman cepat langsung ke rumah Anda.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-16 lg:mb-20">
+                <button className="px-8 py-[18px] bg-[#23A455] text-white font-bold rounded-xl hover:bg-emerald-600 transition-all flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(35,164,85,0.3)]">
+                  <ShoppingBag className="w-5 h-5 fill-white/20" strokeWidth={2.5} />
+                  Belanja Sekarang
+                </button>
+                <button className="px-8 py-[18px] bg-white text-[#1a1a1a] font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(0,0,0,0.04)]">
+                  <ShieldCheck className="w-5 h-5 text-[#23A455]" strokeWidth={2.5} />
+                  100% Original
+                </button>
+              </div>
+            </div>
+
+            {/* Right Image */}
+            <div className="relative h-[300px] sm:h-[400px] md:h-[600px] flex items-center justify-center mt-8 lg:mt-0">
+              {/* User will upload hero-3d.jpg here */}
+              <img 
+                src="/images/hero-3d.jpg" 
+                alt="Bazzhealth App 3D Mockup" 
+                className="w-full h-full object-contain scale-125 lg:scale-110 xl:scale-125 drop-shadow-2xl translate-x-4 lg:translate-x-12"
+                style={{ filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.15))' }}
+              />
+            </div>
+
+          </div>
+        </div>
+
+        {/* Floating Info Bar */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-2rem)] max-w-[1000px] z-20">
+          <div className="bg-white rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.08)] flex flex-col md:flex-row items-center justify-between p-4 md:p-6 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <div className="flex items-center gap-4 px-4 md:px-8 py-4 md:py-0 w-full md:w-auto flex-1">
+              <div className="w-[52px] h-[52px] bg-emerald-50 text-[#23A455] rounded-2xl flex items-center justify-center shrink-0">
+                <Truck className="w-6 h-6" strokeWidth={2.5} />
+              </div>
+              <div>
+                <p className="font-extrabold text-[#1a1a1a] text-[15px]">Pengiriman Cepat</p>
+                <p className="text-[13px] text-slate-500 font-medium">Sampai di hari yang sama</p>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-4 px-4 md:px-8 py-4 md:py-0 w-full md:w-auto flex-1">
+              <div className="w-[52px] h-[52px] bg-emerald-50 text-[#23A455] rounded-2xl flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-6 h-6" strokeWidth={2.5} />
+              </div>
+              <div>
+                <p className="font-extrabold text-[#1a1a1a] text-[15px]">100% Original</p>
+                <p className="text-[13px] text-slate-500 font-medium">Jaminan produk asli</p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 px-4 md:px-8 py-4 md:py-0 w-full md:w-auto flex-1">
+              <div className="w-[52px] h-[52px] bg-emerald-50 text-[#23A455] rounded-2xl flex items-center justify-center shrink-0">
+                <PhoneCall className="w-6 h-6" strokeWidth={2.5} />
+              </div>
+              <div>
+                <p className="font-extrabold text-[#1a1a1a] text-[15px]">Layanan 24/7</p>
+                <p className="text-[13px] text-slate-500 font-medium">Siap membantu Anda</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
+      {/* Spacing for floating bar */}
+      <div className="h-40 md:h-24"></div>
 
       {/* Global Search Bar */}
       <section className="relative z-20 hidden">
