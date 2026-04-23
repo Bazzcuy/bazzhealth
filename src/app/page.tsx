@@ -1,17 +1,15 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { 
   Pill, 
-  Stethoscope, 
   Activity, 
   ShieldCheck, 
   Truck, 
   Search, 
   Menu, 
   ArrowRight, 
-  Clock, 
-  Users, 
-  Star, 
-  CheckCircle2,
   Syringe,
   HeartPulse,
   Sparkles,
@@ -19,10 +17,15 @@ import {
   ShoppingBag
 } from 'lucide-react';
 import PromoPopup from '@/components/PromoPopup';
+import LoginDemoModal from '@/components/LoginDemoModal';
+import { products, formatPrice } from '@/lib/products';
 
 export default function Home() {
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
   return (
     <main className="min-h-screen bg-white font-sans selection:bg-emerald-200 selection:text-emerald-900 overflow-x-hidden">
+      <LoginDemoModal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)} />
       <PromoPopup />
       
       {/* Navigation Header */}
@@ -37,26 +40,28 @@ export default function Home() {
           
           <div className="hidden lg:flex items-center gap-10">
             <div className="relative group">
-              <a href="#" className="text-[15px] font-bold text-emerald-600">Beranda</a>
-              <div className="absolute -bottom-[32px] left-0 w-full h-[3px] bg-emerald-500 rounded-t-full"></div>
+              <a href="#" className="text-[15px] font-bold text-[#23A455]">Beranda</a>
+              <div className="absolute -bottom-[32px] left-0 w-full h-[3px] bg-[#23A455] rounded-t-full"></div>
             </div>
-            <a href="#produk" className="text-[15px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Produk</a>
-            <a href="#kategori" className="text-[15px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Kategori</a>
-            <a href="/penawaran" className="text-[15px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Promo</a>
-            <a href="#tentang" className="text-[15px] font-semibold text-slate-600 hover:text-emerald-600 transition-colors">Tentang Kami</a>
+            <a href="#produk" className="text-[15px] font-semibold text-slate-600 hover:text-[#23A455] transition-colors">Produk</a>
+            <a href="#kategori" className="text-[15px] font-semibold text-slate-600 hover:text-[#23A455] transition-colors">Kategori</a>
+            <a href="/penawaran" className="text-[15px] font-semibold text-slate-600 hover:text-[#23A455] transition-colors">Promo</a>
+            <a href="#tentang" className="text-[15px] font-semibold text-slate-600 hover:text-[#23A455] transition-colors">Tentang Kami</a>
           </div>
 
           <div className="hidden md:flex items-center gap-6">
-            <button className="text-slate-600 hover:text-emerald-600 transition-colors p-2">
+            <button className="text-slate-600 hover:text-[#23A455] transition-colors p-2">
               <Search className="w-[22px] h-[22px]" />
             </button>
-            <div className="relative cursor-pointer text-slate-600 hover:text-emerald-600 transition-colors p-2">
+            <Link href="/keranjang" className="relative cursor-pointer text-slate-600 hover:text-[#23A455] transition-colors p-2">
               <ShoppingBag className="w-[22px] h-[22px]" />
               <span className="absolute top-1 right-1 w-4 h-4 bg-[#23A455] text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white box-content">
                 0
               </span>
-            </div>
-            <button className="px-6 py-3 bg-[#23A455] text-white text-[15px] font-bold rounded-xl hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/30 active:scale-95 ml-2">
+            </Link>
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="px-6 py-3 bg-[#23A455] text-white text-[15px] font-bold rounded-xl hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/30 active:scale-95 ml-2">
               Masuk / Daftar
             </button>
           </div>
@@ -176,7 +181,7 @@ export default function Home() {
       </section>
 
       {/* Popular Products */}
-      <section className="py-24 bg-white border-t border-slate-100">
+      <section id="produk" className="py-24 bg-white border-t border-slate-100">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-4">Paling Sering Dicari</h2>
@@ -184,33 +189,31 @@ export default function Home() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: 'Enervon-C Multivitamin', price: 'Rp 45.000', orig: 'Rp 50.000', label: 'Terlaris', img: '/images/product-1.png' },
-              { name: 'Panadol Paracetamol', price: 'Rp 12.500', orig: null, label: null, img: '/images/product-2.png' },
-              { name: 'Betadine Antiseptik 15ml', price: 'Rp 18.000', orig: null, label: null, img: '/images/product-3.png' },
-              { name: 'Herbal Supplement 12 Sachet', price: 'Rp 38.000', orig: 'Rp 42.000', label: 'Diskon 10%', img: '/images/product-1.png' }
-            ].map((product, idx) => (
-              <div key={idx} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all">
-                <div className="h-48 bg-slate-50 relative flex items-center justify-center p-6">
+            {products.map((product) => (
+              <div key={product.id} className="group flex flex-col bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:shadow-slate-200/50 hover:border-slate-300 transition-all">
+                <Link href={`/produk/${product.id}`} className="h-48 bg-slate-50 relative flex items-center justify-center p-6 block">
                   {product.label && (
                     <span className="absolute top-4 left-4 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider z-10">
                       {product.label}
                     </span>
                   )}
                   <img src={product.img} alt={product.name} className="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500 drop-shadow-md" />
-                </div>
+                </Link>
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="font-semibold text-slate-900 mb-2 line-clamp-2">{product.name}</h3>
+                  <Link href={`/produk/${product.id}`}>
+                    <h3 className="font-semibold text-slate-900 mb-2 line-clamp-2 hover:text-[#23A455] transition-colors">{product.name}</h3>
+                  </Link>
                   <div className="mt-auto flex items-end justify-between">
                     <div>
-                      {product.orig && (
-                        <p className="text-xs text-slate-400 line-through mb-0.5">{product.orig}</p>
+                      {product.originalPrice && (
+                        <p className="text-xs text-slate-400 line-through mb-0.5">{formatPrice(product.originalPrice)}</p>
                       )}
-                      <p className="text-lg font-bold text-[#23A455]">{product.price}</p>
+                      <p className="text-lg font-bold text-[#23A455]">{formatPrice(product.price)}</p>
                     </div>
-                    <button className="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center hover:bg-[#23A455] transition-colors">
+                    <Link href={`/produk/${product.id}`}
+                      className="w-10 h-10 bg-slate-900 text-white rounded-full flex items-center justify-center hover:bg-[#23A455] transition-colors">
                       <ShoppingBag className="w-4 h-4" />
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
