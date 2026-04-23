@@ -110,9 +110,9 @@ export default function Home() {
 
             {/* Right Image */}
             <div className="relative h-[300px] sm:h-[400px] md:h-[600px] flex items-center justify-center mt-8 lg:mt-0">
-              {/* User will upload hero-3d.png here */}
+              {/* User will upload hero-3d.jpg here */}
               <img 
-                src="/images/hero-3d.png" 
+                src="/images/hero-3d.jpg" 
                 alt="Bazzhealth App 3D Mockup" 
                 className="w-full h-full object-contain scale-125 lg:scale-110 xl:scale-125 drop-shadow-2xl translate-x-4 lg:translate-x-12"
                 style={{ filter: 'drop-shadow(0 25px 25px rgba(0,0,0,0.15))' }}
