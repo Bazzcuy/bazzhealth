@@ -245,6 +245,9 @@ export default function Home() {
               </button>
             ))}
           </div>
+        </div>
+      </section>
+
       {/* Popular Products Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -371,6 +374,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
