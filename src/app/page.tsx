@@ -79,7 +79,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section
-        className="relative overflow-hidden pb-28 md:pb-36"
+        className="relative pb-16 md:pb-20"
         style={{
           backgroundImage: "url('/images/hero-bg.png')",
           backgroundSize: 'cover',
@@ -136,43 +136,50 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Info Bar — overlaps into next section */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[calc(100%-2rem)] max-w-[980px] z-20 px-2">
-          <div className="bg-white rounded-[20px] shadow-[0_10px_40px_rgba(0,0,0,0.10)] flex flex-col md:flex-row items-stretch justify-between divide-y md:divide-y-0 md:divide-x divide-slate-100 overflow-hidden">
-            <div className="flex items-center gap-4 px-6 md:px-8 py-5 flex-1">
-              <div className="w-[48px] h-[48px] bg-green-50 text-[#23A455] rounded-xl flex items-center justify-center shrink-0">
+        {/* Removed floating bar from inside section */}
+      </section>
+
+      {/* Info Bar — standalone, overlapping hero bottom */}
+      <div className="relative z-20 px-4 sm:px-6 lg:px-8 -mt-10 md:-mt-14">
+        <div className="max-w-[1100px] mx-auto">
+          <div className="bg-white rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.10)] grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-slate-100 overflow-hidden border border-slate-100">
+            
+            <div className="flex items-center gap-5 px-8 py-6 group hover:bg-green-50/40 transition-colors">
+              <div className="w-12 h-12 bg-[#23A455]/10 text-[#23A455] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#23A455] group-hover:text-white transition-all duration-300">
                 <Truck className="w-6 h-6" strokeWidth={2} />
               </div>
               <div>
-                <p className="font-extrabold text-[#1a1a1a] text-[14px]">Pengiriman Cepat</p>
-                <p className="text-[12px] text-slate-500 font-medium">Sampai di hari yang sama</p>
+                <p className="font-extrabold text-slate-900 text-[15px] leading-tight">Pengiriman Cepat</p>
+                <p className="text-[13px] text-slate-500 mt-0.5">Sampai di hari yang sama</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-6 md:px-8 py-5 flex-1">
-              <div className="w-[48px] h-[48px] bg-green-50 text-[#23A455] rounded-xl flex items-center justify-center shrink-0">
+
+            <div className="flex items-center gap-5 px-8 py-6 group hover:bg-green-50/40 transition-colors">
+              <div className="w-12 h-12 bg-[#23A455]/10 text-[#23A455] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#23A455] group-hover:text-white transition-all duration-300">
                 <ShieldCheck className="w-6 h-6" strokeWidth={2} />
               </div>
               <div>
-                <p className="font-extrabold text-[#1a1a1a] text-[14px]">100% Original</p>
-                <p className="text-[12px] text-slate-500 font-medium">Jaminan produk asli</p>
+                <p className="font-extrabold text-slate-900 text-[15px] leading-tight">100% Original</p>
+                <p className="text-[13px] text-slate-500 mt-0.5">Jaminan produk asli</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 px-6 md:px-8 py-5 flex-1">
-              <div className="w-[48px] h-[48px] bg-green-50 text-[#23A455] rounded-xl flex items-center justify-center shrink-0">
+
+            <div className="flex items-center gap-5 px-8 py-6 group hover:bg-green-50/40 transition-colors">
+              <div className="w-12 h-12 bg-[#23A455]/10 text-[#23A455] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#23A455] group-hover:text-white transition-all duration-300">
                 <PhoneCall className="w-6 h-6" strokeWidth={2} />
               </div>
               <div>
-                <p className="font-extrabold text-[#1a1a1a] text-[14px]">Layanan 24/7</p>
-                <p className="text-[12px] text-slate-500 font-medium">Siap membantu Anda</p>
+                <p className="font-extrabold text-slate-900 text-[15px] leading-tight">Layanan 24/7</p>
+                <p className="text-[13px] text-slate-500 mt-0.5">Siap membantu Anda</p>
               </div>
             </div>
+
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Spacing for floating info bar */}
-      <div className="h-32 md:h-24 bg-white"></div>
-
+      {/* Gap between info bar and products */}
+      <div className="h-12 md:h-16 bg-white"></div>
 
 
       {/* Global Search Bar */}
