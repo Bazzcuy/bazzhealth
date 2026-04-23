@@ -64,7 +64,7 @@ export default function Home() {
                 <Sparkles className="w-4 h-4" />
                 <span>Layanan Farmasi Modern #1</span>
               </div>
-              <h2 className="text-5xl lg:text-[4rem] font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
+              <h2 className="text-4xl md:text-5xl lg:text-[4rem] font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
                 Kesehatan Anda, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Kapanpun Dibutuhkan.</span>
               </h2>
@@ -83,7 +83,7 @@ export default function Home() {
                 </button>
               </div>
               
-              <div className="flex items-center gap-8 pt-6 border-t border-slate-200/60">
+              <div className="flex flex-wrap items-center gap-4 sm:gap-8 pt-6 border-t border-slate-200/60">
                 <div>
                   <div className="flex items-center gap-1 mb-1">
                     {[...Array(5)].map((_, i) => (
@@ -92,7 +92,7 @@ export default function Home() {
                   </div>
                   <p className="text-sm text-slate-600 font-medium">Dari 50rb+ pengguna</p>
                 </div>
-                <div className="h-10 w-px bg-slate-200"></div>
+                <div className="hidden sm:block h-10 w-px bg-slate-200"></div>
                 <div className="flex -space-x-3">
                   {[...Array(4)].map((_, i) => (
                     <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-500 bg-[url('https://api.dicebear.com/7.x/notionists/svg?seed=${i}&backgroundColor=e2e8f0')] bg-cover`}></div>
@@ -181,16 +181,18 @@ export default function Home() {
       {/* Global Search Bar */}
       <section className="relative z-20 -mt-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 p-2 flex items-center gap-2">
-            <div className="pl-6 pr-2 flex items-center justify-center">
-              <Search className="w-6 h-6 text-slate-400" />
+          <div className="bg-white rounded-[2rem] sm:rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 p-2 flex flex-col sm:flex-row items-center gap-2">
+            <div className="w-full flex items-center">
+              <div className="pl-4 sm:pl-6 pr-2 flex items-center justify-center">
+                <Search className="w-5 sm:w-6 h-5 sm:h-6 text-slate-400" />
+              </div>
+              <input 
+                type="text" 
+                placeholder="Cari nama obat, vitamin, keluhan..." 
+                className="flex-1 bg-transparent border-none outline-none text-slate-700 placeholder-slate-400 py-3 sm:py-4 w-full"
+              />
             </div>
-            <input 
-              type="text" 
-              placeholder="Cari nama obat, vitamin, keluhan..." 
-              className="flex-1 bg-transparent border-none outline-none text-slate-700 placeholder-slate-400 py-4"
-            />
-            <button className="px-8 py-4 bg-slate-900 text-white rounded-full font-semibold hover:bg-slate-800 transition-colors shrink-0">
+            <button className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-slate-900 text-white rounded-full font-semibold hover:bg-slate-800 transition-colors shrink-0">
               Cari Produk
             </button>
           </div>
@@ -353,7 +355,7 @@ export default function Home() {
             <HeartPulse className="text-emerald-500 w-6 h-6" />
             <span className="font-bold text-slate-900 text-lg">Healthbazz</span>
           </div>
-          <div className="flex gap-6 text-sm text-slate-500">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm text-slate-500">
             <a href="#" className="hover:text-slate-900 transition-colors">Tentang Kami</a>
             <a href="#" className="hover:text-slate-900 transition-colors">Syarat & Ketentuan</a>
             <a href="#" className="hover:text-slate-900 transition-colors">Kebijakan Privasi</a>
